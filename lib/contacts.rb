@@ -15,5 +15,11 @@ require 'pry'
   # }
 
 def remove_strawberry(contacts)
-  delete contacts[:Freddy_Mercury][:favorite_ice_cream_flavors]["strawberry"]
+  contacts.each do |person, contact_details_hash|
+    contact_details_hash.each do |attribute, date|
+      if attribute == :favorite_ice_cream_flavors
+        data.delete_if {|ice_cream| ice_cream == "strawberry"}
+      end
+    end
+  end
 end
